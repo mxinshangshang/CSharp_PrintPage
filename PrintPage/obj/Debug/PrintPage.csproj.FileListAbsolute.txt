@@ -1,0 +1,10 @@
+C:\Users\jiang\Desktop\PrintPage\PrintPage\bin\Debug\PrintPage.exe.config
+C:\Users\jiang\Desktop\PrintPage\PrintPage\bin\Debug\PrintPage.exe
+C:\Users\jiang\Desktop\PrintPage\PrintPage\bin\Debug\PrintPage.pdb
+C:\Users\jiang\Desktop\PrintPage\PrintPage\obj\Debug\PrintPage.csprojResolveAssemblyReference.cache
+C:\Users\jiang\Desktop\PrintPage\PrintPage\obj\Debug\PrintPage.Form1.resources
+C:\Users\jiang\Desktop\PrintPage\PrintPage\obj\Debug\PrintPage.Properties.Resources.resources
+C:\Users\jiang\Desktop\PrintPage\PrintPage\obj\Debug\PrintPage.csproj.GenerateResource.Cache
+C:\Users\jiang\Desktop\PrintPage\PrintPage\obj\Debug\PrintPage.exe
+C:\Users\jiang\Desktop\PrintPage\PrintPage\obj\Debug\PrintPage.pdb
+C:\Users\jiang\Desktop\PrintPage\PrintPage\obj\Debug\PrintPage.IDlogin.resources
