@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.panel1 = new System.Windows.Forms.Panel();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -51,43 +50,12 @@
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.标签内容表格路径设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.模板路径设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.编辑EToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.清空内容ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
-            this.撤消UToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.恢复RToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.剪切TToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制CToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.粘贴PToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.全选AToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.查找oolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.替换ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
-            this.关闭ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.关于本程序ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.打开OToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.保存SToolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.打印PToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.剪切UToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.复制CToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.粘贴PToolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            this.tf = new System.Windows.Forms.ToolStripComboBox();
-            this.ts = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.tSBtnBold = new System.Windows.Forms.ToolStripButton();
-            this.tSBtnItalic = new System.Windows.Forms.ToolStripButton();
-            this.tSBtnUnderline = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.tSBtnLeft = new System.Windows.Forms.ToolStripButton();
-            this.tSBtnCenter = new System.Windows.Forms.ToolStripButton();
-            this.tSBtnRight = new System.Windows.Forms.ToolStripButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -109,18 +77,9 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "插入CE";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(174, 67);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -146,7 +105,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件FToolStripMenuItem1,
             this.设置ToolStripMenuItem,
-            this.编辑EToolStripMenuItem1,
             this.关于ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -262,115 +220,6 @@
             this.模板路径设置ToolStripMenuItem.Text = "模板路径设置";
             this.模板路径设置ToolStripMenuItem.Click += new System.EventHandler(this.模板路径设置ToolStripMenuItem_Click);
             // 
-            // 编辑EToolStripMenuItem1
-            // 
-            this.编辑EToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.清空内容ToolStripMenuItem,
-            this.toolStripSeparator20,
-            this.撤消UToolStripMenuItem1,
-            this.恢复RToolStripMenuItem1,
-            this.toolStripSeparator12,
-            this.剪切TToolStripMenuItem1,
-            this.复制CToolStripMenuItem1,
-            this.粘贴PToolStripMenuItem1,
-            this.toolStripSeparator13,
-            this.全选AToolStripMenuItem1,
-            this.查找oolStripMenuItem,
-            this.替换ToolStripMenuItem1,
-            this.toolStripSeparator19,
-            this.关闭ToolStripMenuItem2});
-            this.编辑EToolStripMenuItem1.Name = "编辑EToolStripMenuItem1";
-            this.编辑EToolStripMenuItem1.Size = new System.Drawing.Size(59, 21);
-            this.编辑EToolStripMenuItem1.Text = "编辑(&E)";
-            // 
-            // 清空内容ToolStripMenuItem
-            // 
-            this.清空内容ToolStripMenuItem.Name = "清空内容ToolStripMenuItem";
-            this.清空内容ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.清空内容ToolStripMenuItem.Text = "清空内容";
-            // 
-            // toolStripSeparator20
-            // 
-            this.toolStripSeparator20.Name = "toolStripSeparator20";
-            this.toolStripSeparator20.Size = new System.Drawing.Size(121, 6);
-            // 
-            // 撤消UToolStripMenuItem1
-            // 
-            this.撤消UToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("撤消UToolStripMenuItem1.Image")));
-            this.撤消UToolStripMenuItem1.Name = "撤消UToolStripMenuItem1";
-            this.撤消UToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.撤消UToolStripMenuItem1.Text = "撤消(&U)";
-            // 
-            // 恢复RToolStripMenuItem1
-            // 
-            this.恢复RToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("恢复RToolStripMenuItem1.Image")));
-            this.恢复RToolStripMenuItem1.Name = "恢复RToolStripMenuItem1";
-            this.恢复RToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.恢复RToolStripMenuItem1.Text = "恢复(&R)";
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(121, 6);
-            // 
-            // 剪切TToolStripMenuItem1
-            // 
-            this.剪切TToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("剪切TToolStripMenuItem1.Image")));
-            this.剪切TToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.剪切TToolStripMenuItem1.Name = "剪切TToolStripMenuItem1";
-            this.剪切TToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.剪切TToolStripMenuItem1.Text = "剪切(&T)";
-            // 
-            // 复制CToolStripMenuItem1
-            // 
-            this.复制CToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("复制CToolStripMenuItem1.Image")));
-            this.复制CToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.复制CToolStripMenuItem1.Name = "复制CToolStripMenuItem1";
-            this.复制CToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.复制CToolStripMenuItem1.Text = "复制(&C)";
-            // 
-            // 粘贴PToolStripMenuItem1
-            // 
-            this.粘贴PToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("粘贴PToolStripMenuItem1.Image")));
-            this.粘贴PToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.粘贴PToolStripMenuItem1.Name = "粘贴PToolStripMenuItem1";
-            this.粘贴PToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.粘贴PToolStripMenuItem1.Text = "粘贴(&P)";
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(121, 6);
-            // 
-            // 全选AToolStripMenuItem1
-            // 
-            this.全选AToolStripMenuItem1.Name = "全选AToolStripMenuItem1";
-            this.全选AToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.全选AToolStripMenuItem1.Text = "全选(&A)";
-            // 
-            // 查找oolStripMenuItem
-            // 
-            this.查找oolStripMenuItem.Name = "查找oolStripMenuItem";
-            this.查找oolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.查找oolStripMenuItem.Text = "查找";
-            // 
-            // 替换ToolStripMenuItem1
-            // 
-            this.替换ToolStripMenuItem1.Name = "替换ToolStripMenuItem1";
-            this.替换ToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
-            this.替换ToolStripMenuItem1.Text = "替换";
-            // 
-            // toolStripSeparator19
-            // 
-            this.toolStripSeparator19.Name = "toolStripSeparator19";
-            this.toolStripSeparator19.Size = new System.Drawing.Size(121, 6);
-            // 
-            // 关闭ToolStripMenuItem2
-            // 
-            this.关闭ToolStripMenuItem2.Name = "关闭ToolStripMenuItem2";
-            this.关闭ToolStripMenuItem2.Size = new System.Drawing.Size(124, 22);
-            this.关闭ToolStripMenuItem2.Text = "关闭";
-            // 
             // 关于ToolStripMenuItem
             // 
             this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -396,23 +245,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.打开OToolStripButton1,
-            this.保存SToolStripButton1,
-            this.打印PToolStripButton1,
-            this.toolStripSeparator15,
-            this.剪切UToolStripButton1,
-            this.复制CToolStripButton1,
-            this.粘贴PToolStripButton1,
-            this.toolStripSeparator16,
-            this.tf,
-            this.ts,
-            this.toolStripSeparator14,
-            this.tSBtnBold,
-            this.tSBtnItalic,
-            this.tSBtnUnderline,
-            this.toolStripSeparator17,
-            this.tSBtnLeft,
-            this.tSBtnCenter,
-            this.tSBtnRight});
+            this.打印PToolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 29);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(618, 25);
@@ -429,15 +262,6 @@
             this.打开OToolStripButton1.Text = "打开(&O)";
             this.打开OToolStripButton1.Click += new System.EventHandler(this.打开OToolStripButton1_Click);
             // 
-            // 保存SToolStripButton1
-            // 
-            this.保存SToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.保存SToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("保存SToolStripButton1.Image")));
-            this.保存SToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.保存SToolStripButton1.Name = "保存SToolStripButton1";
-            this.保存SToolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.保存SToolStripButton1.Text = "保存(&S)";
-            // 
             // 打印PToolStripButton1
             // 
             this.打印PToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -447,123 +271,6 @@
             this.打印PToolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.打印PToolStripButton1.Text = "打印(&P)";
             this.打印PToolStripButton1.Click += new System.EventHandler(this.打印PToolStripButton1_Click);
-            // 
-            // toolStripSeparator15
-            // 
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 25);
-            // 
-            // 剪切UToolStripButton1
-            // 
-            this.剪切UToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.剪切UToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("剪切UToolStripButton1.Image")));
-            this.剪切UToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.剪切UToolStripButton1.Name = "剪切UToolStripButton1";
-            this.剪切UToolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.剪切UToolStripButton1.Text = "剪切(&U)";
-            // 
-            // 复制CToolStripButton1
-            // 
-            this.复制CToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.复制CToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("复制CToolStripButton1.Image")));
-            this.复制CToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.复制CToolStripButton1.Name = "复制CToolStripButton1";
-            this.复制CToolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.复制CToolStripButton1.Text = "复制(&C)";
-            // 
-            // 粘贴PToolStripButton1
-            // 
-            this.粘贴PToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.粘贴PToolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("粘贴PToolStripButton1.Image")));
-            this.粘贴PToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.粘贴PToolStripButton1.Name = "粘贴PToolStripButton1";
-            this.粘贴PToolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.粘贴PToolStripButton1.Text = "粘贴(&P)";
-            // 
-            // toolStripSeparator16
-            // 
-            this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tf
-            // 
-            this.tf.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.tf.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tf.Name = "tf";
-            this.tf.Size = new System.Drawing.Size(140, 25);
-            this.tf.SelectedIndexChanged += new System.EventHandler(this.tf_SelectedIndexChanged);
-            // 
-            // ts
-            // 
-            this.ts.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.ts.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ts.Name = "ts";
-            this.ts.Size = new System.Drawing.Size(140, 25);
-            this.ts.SelectedIndexChanged += new System.EventHandler(this.ts_SelectedIndexChanged);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tSBtnBold
-            // 
-            this.tSBtnBold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tSBtnBold.Image = ((System.Drawing.Image)(resources.GetObject("tSBtnBold.Image")));
-            this.tSBtnBold.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tSBtnBold.Name = "tSBtnBold";
-            this.tSBtnBold.Size = new System.Drawing.Size(23, 22);
-            this.tSBtnBold.Text = "加粗";
-            // 
-            // tSBtnItalic
-            // 
-            this.tSBtnItalic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tSBtnItalic.Image = ((System.Drawing.Image)(resources.GetObject("tSBtnItalic.Image")));
-            this.tSBtnItalic.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tSBtnItalic.Name = "tSBtnItalic";
-            this.tSBtnItalic.Size = new System.Drawing.Size(23, 22);
-            this.tSBtnItalic.Text = "倾斜";
-            // 
-            // tSBtnUnderline
-            // 
-            this.tSBtnUnderline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tSBtnUnderline.Image = ((System.Drawing.Image)(resources.GetObject("tSBtnUnderline.Image")));
-            this.tSBtnUnderline.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tSBtnUnderline.Name = "tSBtnUnderline";
-            this.tSBtnUnderline.Size = new System.Drawing.Size(23, 22);
-            this.tSBtnUnderline.Text = "下划线";
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tSBtnLeft
-            // 
-            this.tSBtnLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tSBtnLeft.Image = ((System.Drawing.Image)(resources.GetObject("tSBtnLeft.Image")));
-            this.tSBtnLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tSBtnLeft.Name = "tSBtnLeft";
-            this.tSBtnLeft.Size = new System.Drawing.Size(23, 22);
-            this.tSBtnLeft.Text = "左对齐";
-            // 
-            // tSBtnCenter
-            // 
-            this.tSBtnCenter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tSBtnCenter.Image = ((System.Drawing.Image)(resources.GetObject("tSBtnCenter.Image")));
-            this.tSBtnCenter.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tSBtnCenter.Name = "tSBtnCenter";
-            this.tSBtnCenter.Size = new System.Drawing.Size(23, 22);
-            this.tSBtnCenter.Text = "居中";
-            // 
-            // tSBtnRight
-            // 
-            this.tSBtnRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tSBtnRight.Image = ((System.Drawing.Image)(resources.GetObject("tSBtnRight.Image")));
-            this.tSBtnRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tSBtnRight.Name = "tSBtnRight";
-            this.tSBtnRight.Size = new System.Drawing.Size(23, 22);
-            this.tSBtnRight.Text = "右对齐";
             // 
             // openFileDialog1
             // 
@@ -577,7 +284,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -596,7 +302,6 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
@@ -615,43 +320,12 @@
         private System.Windows.Forms.ToolStripMenuItem 退出XToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 标签内容表格路径设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 编辑EToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 清空内容ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
-        private System.Windows.Forms.ToolStripMenuItem 撤消UToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 恢复RToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        private System.Windows.Forms.ToolStripMenuItem 剪切TToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 复制CToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 粘贴PToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
-        private System.Windows.Forms.ToolStripMenuItem 全选AToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 查找oolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 替换ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
-        private System.Windows.Forms.ToolStripMenuItem 关闭ToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助HToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 关于本程序ToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton 打开OToolStripButton1;
-        private System.Windows.Forms.ToolStripButton 保存SToolStripButton1;
         private System.Windows.Forms.ToolStripButton 打印PToolStripButton1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
-        private System.Windows.Forms.ToolStripButton 剪切UToolStripButton1;
-        private System.Windows.Forms.ToolStripButton 复制CToolStripButton1;
-        private System.Windows.Forms.ToolStripButton 粘贴PToolStripButton1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
-        private System.Windows.Forms.ToolStripComboBox tf;
-        private System.Windows.Forms.ToolStripComboBox ts;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripButton tSBtnBold;
-        private System.Windows.Forms.ToolStripButton tSBtnItalic;
-        private System.Windows.Forms.ToolStripButton tSBtnUnderline;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
-        private System.Windows.Forms.ToolStripButton tSBtnLeft;
-        private System.Windows.Forms.ToolStripButton tSBtnCenter;
-        private System.Windows.Forms.ToolStripButton tSBtnRight;
         private System.Windows.Forms.ToolStripMenuItem 模板路径设置ToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }

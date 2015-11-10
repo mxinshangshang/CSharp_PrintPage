@@ -14,67 +14,26 @@ namespace PrintPage
 {
     public partial class Form1 : Form
     {
-        bool isdown;//鼠标左键是否按下
-        Point mousepos;//鼠标位置
-        private string[] fontFamilyNames;
-
-        int y = 0;
-        int x = 0;
-        int index = 1;
-
         //Label lab = new Label();
 
         private string InfoPath;
         private string ModelPath;
+        private string CEImagePath = null;
 
         private string[,] Prm;
+        private string[] Prm1;
 
         public string id = null;
 
         public Form1()
         {
             InitializeComponent();
-            GetFontFamilies();
-            ts_addItems();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.AllowDrop = true;
             //窗体自身支持接受拖拽来的控件
-        }
-
-        private void GetFontFamilies()
-        {
-            Graphics g = CreateGraphics();
-            FontFamily[] ffs = FontFamily.Families;
-            fontFamilyNames = new string[ffs.Length];
-            for (int i = 0; i < ffs.Length; i++)
-            {
-                fontFamilyNames[i] = ffs[i].Name;
-                //tSComboBoxFont.Items.Add(fontFamilyNames[i]);  // 逐个添加字体
-            }
-            tf.Items.AddRange(fontFamilyNames);      //一次性添加所有字体
-        }
-
-        private void ts_addItems()
-        {
-            for (int i = 0; i <= 50; i++)
-            {
-                ts.Items.Add(i.ToString());
-            }
-        }
-
-        private void AddLabel(string labName)
-        {
-            Label lab = new Label();
-            lab.AutoSize = true;
-            //lab.Height = 30;
-            //lab.Dock = DockStyle.Top;
-            lab.Name = labName;
-            lab.Text = labName;
-            lab.Click += Label_Click;
-            panel1.Controls.Add(lab);
         }
 
         private string[,] GetModelExcel()                                              //读入Excel内容
@@ -165,22 +124,10 @@ namespace PrintPage
             }
         }
 
-        private void Label_Click(object sender, EventArgs e)
-        {
-            var label = (Label)sender;
-            foreach (Label lb in panel1.Controls) lb.BackColor = lb == label ? Color.Green : Color.White;
-            tf.Tag = label;
-            ts.Tag = label;
-            label.MouseDown += label_MouseDown;
-            label.MouseMove += label_MouseMove;
-            label.MouseUp += label_MouseUp;
-        }
-
         private void button1_Click(object sender, EventArgs e)  //输入ID
         {
             //AddLabel("area"+index);
             //index++;
-            string[] Prm1;
 
             IDlogin ID = new IDlogin();
             ID.GetForm(this);
@@ -197,7 +144,7 @@ namespace PrintPage
                     Prm[i, 0] = Prm[i, 0].Replace(Prm[i, 0],Prm1[int.Parse(Prm[i, 0].Trim().Substring(4))-1]);
                 }
 
-                Image im = new Bitmap(panel1.Width, this.panel1.Height);
+                Image im = new Bitmap(panel1.Width, panel1.Height);
                 Graphics g = Graphics.FromImage(im);
 
                 for (int i = 0; i < Prm.Length / 5; i++)
@@ -208,7 +155,7 @@ namespace PrintPage
 
                 Barcode bar = new Barcode();
                 g.ScaleTransform(1, 0.54f);
-                g.DrawImage(RotateImg(bar.GetBarCode(Prm1[2]), 90), 275.0F, 220.0F);
+                g.DrawImage(bar.GetBarCode(Prm1[2]), 300, 250);
 
                 //g.ScaleTransform(1, 1.9f);
 
@@ -220,48 +167,59 @@ namespace PrintPage
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (Prm1 != null)
+            {
+                Prm = GetModelExcel();
+
+                for (int i = 0; i < Prm.Length / 5; i++)
+                {
+                    string a = Prm[i, 0].Trim().Substring(4);
+                    int.Parse(a);
+                    Prm[i, 0] = Prm[i, 0].Replace(Prm[i, 0], Prm1[int.Parse(Prm[i, 0].Trim().Substring(4)) - 1]);
+                }
+
+                Image im = new Bitmap(panel1.Width, panel1.Height);
+                Graphics g = Graphics.FromImage(im);
+
+                for (int i = 0; i < Prm.Length / 5; i++)
+                {
+                    Font font = new Font(Prm[i, 4], int.Parse(Prm[i, 3]), FontStyle.Bold);
+                    g.DrawString(Prm[i, 0], font, Brushes.Black, (float.Parse(Prm[i, 1]) - 3) * 3F, (60 - float.Parse(Prm[i, 2]) - 5) * 4F);
+                }
+                using (OpenFileDialog dlg = new OpenFileDialog())
+                {
+                    dlg.Title = "Insert picture";
+                    dlg.DefaultExt = "jpg";
+                    dlg.Filter = "Bitmap Files|*.bmp|JPEG Files|*.jpg|GIF Files|*.gif|All files|*.*";
+                    dlg.FilterIndex = 1;
+                    if (dlg.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            CEImagePath = dlg.FileName;
+                            Image img = Image.FromFile(CEImagePath);
+                            g.DrawImage(img, new Rectangle(4, 200, 30, 30));
+                            //g.DrawImage(img, 300, 250);
+                            //Clipboard.SetDataObject(img);
+                            //DataFormats.Format df = DataFormats.GetFormat(DataFormats.Bitmap);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Unable to insert image.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                Barcode bar = new Barcode();
+                g.ScaleTransform(1, 0.54f);
+                g.DrawImage(bar.GetBarCode(Prm1[2]), 300, 250);
+                //g.ScaleTransform(1, 1.9f);
+
+                panel1.BackgroundImageLayout = ImageLayout.Stretch;
+                panel1.BackgroundImage = im;
+            }
+
             //panel1.Controls.Remove(lab);
-        }
-
-        private void label_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                isdown = true;//鼠标按下
-            }
-        }
-
-        private void label_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (tf.Tag == null) return;
-            var label = (Label)tf.Tag;
-            if (isdown)
-            {
-                mousepos.Offset(e.X, e.Y);
-                label.Location = mousepos;//label控件的位置
-            }
-        }
-
-        private void label_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-                isdown = false;//释放鼠标左键
-        }
-
-        private void tf_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tf.Tag == null) return;
-            var label = (Label)tf.Tag;
-            var font = new Font(tf.SelectedItem.ToString(), label.Font.Size);
-            label.Font = font;
-        }
-
-        private void ts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ts.Tag == null) return;
-            var label = (Label)ts.Tag;
-            var font = new Font(label.Font.FontFamily, float.Parse(ts.SelectedItem.ToString()));
-            label.Font = font;
         }
 
         private void 模板路径设置ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -292,29 +250,13 @@ namespace PrintPage
 
         private void 打开OToolStripButton1_Click(object sender, EventArgs e)
         {
-            //string[,] Prm;
-            //openFileDialog1.Title = "打开文件...";
-            //openFileDialog1.Filter = "富格式文件(*.rtf)|*.rtf|文本文件(*.txt)|*.txt|所有文件(*.*)|*.*";
-            //openFileDialog1.FilterIndex = 1;
-            //openFileDialog1.InitialDirectory = "桌面";
-            //openFileDialog1.ShowReadOnly = true;
-            //openFileDialog1.ReadOnlyChecked = false;
-            //openFileDialog1.FileName = "";
-
-            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-            //    int i = 0;
-            //    Text = openFileDialog1.FileName;
-            //}
-            //openFileDialog1.FileName = "";
-
             Prm = GetModelExcel();
             Image im = new Bitmap(this.panel1.Width, this.panel1.Height);
             Graphics g = Graphics.FromImage(im);
 
             for (int i = 0; i < Prm.Length/5; i++)
             {
-                Font font = new Font(Prm[i, 4], int.Parse(Prm[i, 3]), FontStyle.Bold);
+                Font font = new Font(Prm[i, 4], int.Parse(Prm[i, 3]), FontStyle.Regular);
                 g.DrawString(Prm[i, 0], font, Brushes.Black, (float.Parse(Prm[i, 1]) - 3) * 3F, (60 - float.Parse(Prm[i, 2]) - 5) * 4F);
             }
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
@@ -344,11 +286,16 @@ namespace PrintPage
             for (int i = 0; i < Prm.Length / 5; i++)
             {
                 Font font = new Font(Prm[i, 4], int.Parse(Prm[i, 3]), FontStyle.Bold);
-                e.Graphics.DrawString(Prm[i, 0], font, Brushes.Black, (float.Parse(Prm[i, 1]) - 4) * 3F, (60 - float.Parse(Prm[i, 2]) - 5) * 4F);
+                e.Graphics.DrawString(Prm[i, 0], font, Brushes.Black, (float.Parse(Prm[i, 1]) - 0) * 3F, (60 - float.Parse(Prm[i, 2]) - 5) * 4F);
+            }
+            if (CEImagePath != null)
+            {
+                Image img = Image.FromFile(CEImagePath);
+                e.Graphics.DrawImage(img, new Rectangle(18, 175, 40, 40));
             }
 
             Barcode bar = new Barcode();
-            e.Graphics.ScaleTransform(1f, 0.5f);
+            e.Graphics.ScaleTransform(1f, 0.51f);
             e.Graphics.DrawImage(bar.GetBarCode(Prm1[2]), 300, 250);//270.0F, 220.0F);
             //e.Graphics.DrawImage(bar.GetBarCode(Prm1[2]), 0, 30);
             //e.Graphics.ScaleTransform(1f, 1.9f);
@@ -416,13 +363,29 @@ public class Barcode
     private int WidthCU = 3;  //粗线和宽间隙宽度
     private int WidthXI = 1;  //细线和窄间隙宽度
     private int xCoordinate = 0;//75;  //条码起始坐标
-    private int LineHeight = 60;
+    private int LineHeight = 30;
     private int Height = 0;
     private int Width = 0;
 
     #region 加载对应码表
     public Barcode()
     {
+        //Decode = new Hashtable();
+        //Decode.Add("0", "1010011011010");
+        //Decode.Add("1", "1101001010110");
+        //Decode.Add("2", "1011001010110");
+        //Decode.Add("3", "1101100101010");
+        //Decode.Add("4", "1010011010110");
+        //Decode.Add("5", "1101001101010");
+        //Decode.Add("6", "1011001101010");
+        //Decode.Add("7", "1010010110110");
+        //Decode.Add("8", "1101001011010");
+        //Decode.Add("9", "1011001011010");
+        //Decode.Add("+", "1001010010010");
+        //Decode.Add("-", "1001010110110");
+        //Decode.Add("*", "1001011011010");
+
+
         Decode = new Hashtable();
         Decode.Add("0", "000110100");
         Decode.Add("1", "100100001");
@@ -509,27 +472,6 @@ public class Barcode
         CheckCode.Add("/", "40");
         CheckCode.Add("+", "41");
         CheckCode.Add("%", "42");
-    }
-    #endregion
-
-    #region 保存文件
-
-    public Boolean saveFile(string Code, string Title, int UseCheck)
-    {
-        string code39 = Encode39(Code, UseCheck);
-        if (code39 != null)
-        {
-            Bitmap saved = new Bitmap(this.Width, this.Height);
-            Graphics g = Graphics.FromImage(saved);
-            g.FillRectangle(new SolidBrush(Color.White), 0, 0, this.Width, this.Height);
-            this.DrawBarCode39(code39, Title, g);
-            string path = @"c:\";
-            string filename = path + Code + ".jpg";
-            saved.Save(filename, ImageFormat.Jpeg);
-            saved.Dispose();
-            return true;
-        }
-        return false;
     }
     #endregion
 
